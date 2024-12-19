@@ -1,0 +1,7 @@
+﻿  Building 'you-drive-me-crazy' with toolset 'WindowsKernelModeDriver10.0' and the 'Universal' target platform.
+  Stamping x64\Release\you-drive-me-crazy.inf
+  Stamping [Version] section with DriverVer=12/12/2024,16.6.45.774
+  hook.cpp
+C:\Users\John\source\repos\you-drive-me-crazy\you-drive-me-crazy\hook.cpp(113,32): warning C4996: 'ExAllocatePool': ExAllocatePool is deprecated, use ExAllocatePool2.
+  you-drive-me-crazy.vcxproj -> C:\Users\John\source\repos\you-drive-me-crazy\x64\Release\you-drive-me-crazy.sys
+  Driver is 'Universal'.

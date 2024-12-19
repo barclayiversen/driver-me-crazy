@@ -1,0 +1,62 @@
+;
+; you-drive-me-crazy.inf
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System ; TODO: specify appropriate Class
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318} ; TODO: specify appropriate ClassGuid
+Provider    = %ManufacturerName%
+CatalogFile = you-drive-me-crazy.cat
+DriverVer   = ; TODO: set DriverVer in stampinf property pages
+PnpLockdown = 1
+
+[DestinationDirs]
+DefaultDestDir = 13
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+you-drive-me-crazy.sys = 1,,
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName% = Standard,NT$ARCH$.10.0...16299 ; %13% support introduced in build 16299
+
+[Standard.NT$ARCH$.10.0...16299]
+%you-drive-me-crazy.DeviceDesc% = you-drive-me-crazy_Device, Root\you-drive-me-crazy ; TODO: edit hw-id
+
+[you-drive-me-crazy_Device.NT]
+CopyFiles = File_Copy
+
+[File_Copy]
+you-drive-me-crazy.sys
+
+;-------------- Service installation
+[you-drive-me-crazy_Device.NT.Services]
+AddService = you-drive-me-crazy,%SPSVCINST_ASSOCSERVICE%, you-drive-me-crazy_Service_Inst
+
+; -------------- you-drive-me-crazy driver install sections
+[you-drive-me-crazy_Service_Inst]
+DisplayName    = %you-drive-me-crazy.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\you-drive-me-crazy.sys
+
+[you-drive-me-crazy_Device.NT.Wdf]
+KmdfService = you-drive-me-crazy, you-drive-me-crazy_wdfsect
+
+[you-drive-me-crazy_wdfsect]
+KmdfLibraryVersion = $KMDFVERSION$
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+ManufacturerName = "<Your manufacturer name>" ;TODO: Replace with your manufacturer name
+DiskName = "you-drive-me-crazy Installation Disk"
+you-drive-me-crazy.DeviceDesc = "you-drive-me-crazy Device"
+you-drive-me-crazy.SVCDESC = "you-drive-me-crazy Service"

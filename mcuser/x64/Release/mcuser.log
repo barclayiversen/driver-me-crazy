@@ -1,0 +1,13 @@
+﻿  main.cpp
+C:\Users\John\source\repos\you-drive-me-crazy\mcuser\main.cpp(41,10): warning C4477: 'printf' : format string '%llx' requires an argument of type 'unsigned __int64', but variadic argument 1 has type 'uint64_t (__cdecl *)(NULL_MEMORY *)'
+      C:\Users\John\source\repos\you-drive-me-crazy\mcuser\main.cpp(41,10):
+      the template instantiation context (the oldest one first) is
+          C:\Users\John\source\repos\you-drive-me-crazy\mcuser\main.cpp(101,2):
+          see reference to function template instantiation 'uint64_t call_hook<NULL_MEMORY*>(NULL_MEMORY *const )' being compiled
+  
+  Generating code
+  3 of 6 functions (50.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  mcuser.vcxproj -> C:\Users\John\source\repos\you-drive-me-crazy\x64\Release\mcuser.exe
